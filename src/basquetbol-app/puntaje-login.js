@@ -6,7 +6,7 @@ class Puntaje {
     }
 }
 
-var i = -1;
+var i = 0;
 
 class PuntajeLogin extends Polymer.Element {
  static get properties() {
@@ -19,8 +19,8 @@ class PuntajeLogin extends Polymer.Element {
         return Polymer.html`
       
         
-      <button style="display: none;" on-click="mostrarPuntajes">Mostrar Puntajes</button>
-      <button  on-click="cargarPuntajes">cargarPuntajes</button>
+      
+      <button  on-click="cargarPuntajes">Cargar Puntajes</button>
       <button  id="sgt" style="display: none;" on-click="cargarPuntaje">siguiente Puntaje</button>
       
       
@@ -35,19 +35,35 @@ class PuntajeLogin extends Polymer.Element {
 
     cargarPuntajes() {
         //cerramos el login
+        document.getElementById("botonfresh").style.display='none';
         document.getElementById("loginJugador").style.display = 'none';
         var datoslog = document.getElementById("loginPuntaje");
         //datoslog.style.display = 'block';//
+        //
+        var lineaNueva = document.createElement("div");
+        var contenido = document.createTextNode(jugadores[i].nombre + " " + jugadores[i].apellido+ " " + jugadores[i].edad+ " " + jugadores[i].altura+ " " + jugadores[i].peso+ " " + jugadores[i].id /*/+ " " + puntajes[rel].puntaje*/);
+        lineaNueva.appendChild(contenido);
 
-
+        datoslog.appendChild(lineaNueva);
+//
         var botonAgregarPuntaje = document.createElement("button");
         botonAgregarPuntaje.addEventListener("click", this.cargarPuntaje, true);
         botonAgregarPuntaje.appendChild(document.createTextNode("botonAgregarPuntaje"));
 
+
+        datoslog.appendChild(lineaNueva);
+
         datoslog.appendChild(botonAgregarPuntaje);
         datoslog.style.display = 'block';
+        botonAgregarPuntaje.style.display = 'none';
+
+
+       
+        botonAgregarPuntaje.style.display = 'block';
+
+        //this.cargarPuntaje();
         
-        i++;
+      
 
     }
     cargarPuntaje() {
@@ -57,8 +73,9 @@ class PuntajeLogin extends Polymer.Element {
             datoslog.style.display = 'block';
             //while (i <= 20 ) {
             var lineaNueva = document.createElement("div");
-            var rel = jugadores[i].id;
-            var contenido = document.createTextNode(jugadores[i].nombre + " " + jugadores[i].apellido+ " " + jugadores[i].edad+ " " + jugadores[i].altura+ " " + jugadores[i].peso+ " " + jugadores[i].id + " " + puntajes[rel].puntaje);
+            console.log(puntajes);
+            //var rel = jugadores[i].id;
+            var contenido = document.createTextNode(jugadores[i].nombre + " " + jugadores[i].apellido+ " " + jugadores[i].edad+ " " + jugadores[i].altura+ " " + jugadores[i].peso+ " " + jugadores[i].id /*/+ " " + puntajes[rel].puntaje*/);
             var valorPt = document.getElementById("puntos").value;
             alert(valorPt);
             //para agregar puntaje
@@ -76,13 +93,15 @@ class PuntajeLogin extends Polymer.Element {
             //variable puntajeNew
             let puntajeNuevo = new Puntaje(i,valorPt);
             puntajes.push(puntajeNuevo); 
-            i++;
+            
         }
         else {
             console.log(puntajes);
             alert("ya no ghay jugadores");
             //boton de mostrar top 3 jugadores  
         }//alert("cargo");
+        
+        i++;
     }
 
     tomarPuntaje(){

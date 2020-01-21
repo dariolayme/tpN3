@@ -1,4 +1,4 @@
-
+/*
 
 class PuntajeLogin extends Polymer.Element{
     
@@ -38,3 +38,4 @@ class PuntajeLogin extends Polymer.Element{
 }
 
 window.customElements.define(PuntajeLogin.is, PuntajeLogin);
+*/

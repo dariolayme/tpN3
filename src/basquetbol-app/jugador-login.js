@@ -40,6 +40,7 @@ class JugadorLogin extends Polymer.Element {
       },
       altura: Number,
       peso: Number,
+      id: Number,
 
     }
   }
