@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>basquetbol</title>
+
+
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="import" href="/bower_components/polymer/polymer-element.html">
+  <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="src/basquetbol-app/jugador-login.js"></script>
+  <script src="src/basquetbol-app/puntaje-login.js"></script>
+
+
+
+  <!--<link rel="import" href="/src/basquetbol-app/basquetbol-app.html">-->
+
+
+</head>
+
+<body>
+  <div id="loginJugador">
+    <div>
+      <jugador-login id="login"></jugador-login>
+    </div>
+
+    <div>
+      <table id="datos">
+
+      </table>
+    </div>
+    <br>
+   
+
+  </div>
+
+
+  <div>
+    <puntaje-login></puntaje-login>
+  </div>
+
+  <div id="loginPuntaje" style="display: none;">
+      <input type="number"  id="puntos" value="0">
+  </div>
+
+  <div id="topTres">
+
+
+  </div>
+
+  
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+
+
+
+<!--
+<dom-module id="basquetbol-app">
+  <script>
+
+    var id = 0;
+    class Jugador {
+      //Nombre, Apellido, Posición, edad, altura, peso.
+      constructor(unNombre, unApellido, unaPosicion, edad, altura, peso, id) {
+        this.nombre = unNombre;
+        this.apellido = unApellido;
+        this.unaPosicion = unaPosicion;
+        this.edad = edad;
+        this.altura = altura;
+        this.peso = peso;
+        this.id = id;
+
+      }
+    }
+
+
+    class BasquetbolApp extends Polymer.Element {
+      static get is() { return 'basquetbol-app'; }
+
+      static get properties() {
+        return {
+          nombre: String,
+          apellido: String,
+          edad: Number,
+          posicion: String,
+          altura: Number,
+          peso: Number,
+          jugadoresX: {
+            value() {
+              return [
+              ];
+            }
+          }
+        }
+      }
+    
+
+      static get template() {
+      return Polymer.html`
+        
+            <p>Nombre:<input type="text" id="nombre" value="{{nombre::input}}"> </p>       
+            <p>Apellido:<input type="text" id="apellido" value="{{apellido::input}}"></p>
+            <p>Edad:<input type="number" id="edad" value="{{edad::input}}"></p>
+            <p>Posicion:<input type="text" id="posicion" value="{{posicion::input}}"></p>
+            <p>Altura:<input type="text" id="altura" value="{{altura::input}}"></p>
+            <p>Peso:<input type="text" id="peso" value="{{peso::input}}"></p>
+
+            <button on-click="cargar">Cargar Datos</button>
+            <button on-click="mostrar"> Datos</button>
+            <button on-click="ocultar"> Ocultar</button>
+
+
+            `;
+
+    }
+    /*
+          ocultar(){
+    
+            var tag = document.getElementById("asd");
+            //tag.innerHTML = "hola ocultar";
+            tag.style.display = 'none';
+          }
+          
+     */
+
+    cargar() {
+
+      if (this.llegoAlLimite()) {
+        let unJugador = new Jugador(this.nombre, this.apellido, this.posicion, this.edad, this.altura, this.peso, id);
+        jugadores.push(unJugador);
+        id++;
+      }
+      else {
+        this.properties.jugadoresX = ["asd"];
+        alert("No se puede ingresar mas Jugadores");
+        console.log(jugadoresX);
+      }
+    }
+
+    llegoAlLimite() {
+      return jugadores.length < 20
+    }
+
+    mostrar() {
+
+      var div = document.getElementById("datos");
+      var arrayLleno = "";
+      for (let index = 0; index < jugadores.length; index++) {
+        arrayLleno += "<tr><td>" + jugadores[index].nombre + "</td><td>" + jugadores[index].apellido + "</td><td>" + jugadores[index].edad + "</td><td>" + jugadores[index].altura + "</td><td>" + jugadores[index].peso + "</td><td>" + jugadores[index].id + "</td></tr>";
+
+      }
+      div.innerHTML = arrayLleno;
+      div.style.display = 'block';
+    }
+
+    ocultar() {
+      document.getElementById("datos").style.display = 'none';
+
+    }
+    }
+
+    class Puntaje {
+      constructor(idp, puntaje) {
+        this.id = idp;
+        this.puntaje = puntaje;
+      }
+    }
+
+
+    class PuntajeLogin extends Polymer.Element {
+
+      constructor() {
+        super();
+
+      }
+
+      static get is() { return 'puntaje-login'; }
+
+      static get template() {
+        return Polymer.html`
+        <div>
+            <table id="datosLogined">
+
+            </table>
+        </div>
+
+        <button on-click="mostrarPuntajes">Cmostrars</button>
+        
+            
+        `;
+      }
+      static get properties() {
+        return {
+          id: Number,
+          puntaje: Number
+        }
+      }
+
+      mostrarPuntajes() {
+        console.log(this.jugadores);
+      }
+
+
+
+    }
+
+    window.customElements.define(PuntajeLogin.is, PuntajeLogin);
+
+
+    window.customElements.define(BasquetbolApp.is, BasquetbolApp);
+
+  </script>
+</dom-module>
+
+-->

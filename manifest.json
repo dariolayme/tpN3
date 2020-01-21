@@ -1,0 +1,6 @@
+{
+  "name": "basquetbol",
+  "short_name": "basquetbol",
+  "start_url": "/",
+  "display": "standalone"
+}
